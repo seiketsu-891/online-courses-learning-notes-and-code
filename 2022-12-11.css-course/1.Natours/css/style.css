@@ -1,0 +1,95 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #777;
+}
+
+.header {
+    position: relative;
+    height: 95vh;
+    background-image: linear-gradient(to right bottom, rgba(126, 213, 111, .8), rgba(40, 180, 131, .8)), url('../img/hero.jpg');
+    /* make it always try to fit the element */
+    background-size: cover;
+    /* the top of the image will always stay the same no matter how the window is resized */
+    background-position: top;
+    /* the arguments are the axis of the 4 corners of the polygon(clock-wise direction) */
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
+
+.logo-box {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+
+.logo {
+    height: 35px;
+}
+
+.header-text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.heading-primary {
+    color: #fff;
+    text-transform: uppercase;
+    display: block;
+    /* fix shaking problem */
+    backface-visibility: hidden;
+}
+
+.heading-primary-main {
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 35px;
+    animation: moveInLeft;
+    animation-duration: 1s;
+}
+
+.heading-primary-sub {
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 17.4px;
+    animation: moveInRight;
+    animation-duration: 1s;
+}
+
+
+/* animation for heading-primary-main, the text will first move to left, and then move a little bit to right. */
+
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translate(-100px);
+    }
+    80% {
+        transform: translate(10px);
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translate(100px);
+    }
+    80% {
+        transform: translate(-10px);
+    }
+    100% {
+        opacity: 1;
+    }
+}
